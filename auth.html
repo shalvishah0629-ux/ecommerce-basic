@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login / Signup</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+
+<div class="auth-container">
+
+  <!-- LOGIN -->
+  <div id="loginForm" class="form-box">
+    <h2>Login</h2>
+
+    <input type="email" id="loginEmail" placeholder="Email">
+    <input type="password" id="loginPassword" placeholder="Password">
+
+    <!-- ✅ REMEMBER ME -->
+    <label>
+      <input type="checkbox" id="rememberMe"> Remember Me
+    </label>
+
+    <button onclick="login()">Login</button>
+
+    <p class="link" onclick="showForgot()">Forgot Password?</p>
+
+    <p id="loginError" class="error"></p>
+
+    <p>Don't have an account? 
+      <span onclick="showSignup()">Sign Up</span>
+    </p>
+  </div>
+
+  <!-- SIGNUP -->
+  <div id="signupForm" class="form-box hidden">
+    <h2>Sign Up</h2>
+
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <input type="password" id="confirmPassword" placeholder="Confirm Password">
+
+    <button onclick="signup()">Sign Up</button>
+
+    <p id="signupError" class="error"></p>
+
+    <p>Already have an account? 
+      <span onclick="showLogin()">Login</span>
+    </p>
+  </div>
+
+  <!-- FORGOT PASSWORD -->
+  <div id="forgotForm" class="form-box hidden">
+    <h2>Reset Password</h2>
+
+    <input type="email" id="forgotEmail" placeholder="Enter your email">
+    <input type="password" id="newPassword" placeholder="New Password">
+
+    <button onclick="resetPassword()">Reset Password</button>
+
+    <p id="forgotError" class="error"></p>
+
+    <p><span onclick="showLogin()">Back to Login</span></p>
+  </div>
+
+</div>
+
+<script src="scripts/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Your Orders</h2>
+<div id="orders"></div>
+
+<script>
+async function loadOrders(){
+  const token = localStorage.getItem("token");
+
+  const res = await fetch("http://localhost:5000/orders",{
+    headers:{Authorization:token}
+  });
+
+  const data = await res.json();
+
+  const container = document.getElementById("orders");
+
+  data.forEach(o=>{
+    container.innerHTML += `
+      <div>
+        <p>Total: $${o.total}</p>
+        <p>Date: ${new Date(o.date).toLocaleString()}</p>
+      </div>
+    `;
+  });
+}
+
+loadOrders();
+</script>
+
+</body>
+</html>
